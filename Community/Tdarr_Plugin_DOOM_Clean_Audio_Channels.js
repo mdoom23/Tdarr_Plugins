@@ -136,7 +136,7 @@ function buildAudioConfiguration(inputs, file, logger) {
   
   for (var i = 0; i < file.ffProbeData.streams.length; i++) {
     if (file.ffProbeData.streams[i].codec_type.toLowerCase() === "audio") {
-		if file.ffProbeData.streams[i].language in language_max {
+		if (file.ffProbeData.streams[i].language in language_max) {
 			language_max[file.ffProbeData.streams[i].language] = Math.max(language_max[file.ffProbeData.streams[i].language],int(file.ffProbeData.streams[i].channels));
 		} else {
 			language_max[file.ffProbeData.streams[i].language] = int(file.ffProbeData.streams[i].channels);
